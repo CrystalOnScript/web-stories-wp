@@ -61,16 +61,15 @@ const StyledPill = styled.button(
   `
 );
 
-const Pill = forwardRef(function Pill(
-  { children, isActive, onClick, ...rest },
-  ref
-) {
+function Pill({ children, isActive, onClick, ...rest }, ref) {
   return (
     <StyledPill ref={ref} isActive={isActive} onClick={onClick} {...rest}>
       {children}
     </StyledPill>
   );
-});
+}
+
+const PillWithRef = forwardRef(Pill);
 
 Pill.propTypes = {
   children: PropTypes.node.isRequired,
@@ -78,4 +77,4 @@ Pill.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-export default Pill;
+export default PillWithRef;
